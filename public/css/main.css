@@ -1,0 +1,473 @@
+.color-bar {
+    position: absolute;
+    z-index: -1;
+    background-color: #eee;
+    border-bottom: 1px solid #ddd;
+    height: 70px;
+    width: 100%;
+}
+
+.header {
+    height: 70px;
+    margin: 0;
+}
+
+a.logo {
+    width: 100px;
+}
+
+.header li {
+    margin-top: -4px;
+}
+
+.username a {
+    padding: 0;
+    color: #333;
+}
+
+.footer {
+    border-top: 1px solid #ccc;
+    padding-top: 12px;
+    margin-top: 24px;
+    color: #aaa;
+}
+
+a.username {
+    font-weight: bold;
+    color: inherit;
+}
+
+form.new-project,
+form.new-task {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+form.login,
+form.signup {
+    width: 300px;
+    margin: 20px auto;
+}
+
+form.new-project #projectName {
+    width: 300px;
+}
+
+.btn-new-task {
+}
+
+.task-applicants {
+}
+
+.no-applicants {
+    font-weight: bold;
+}
+
+.task-state-label,
+.your-app-label {
+    display: inline-block;
+}
+
+.description-markdown h1 {
+    font-size: 24px;
+}
+
+.description-markdown h2 {
+    font-size: 18px;
+}
+
+.description-markdown h3,
+.description-markdown h4,
+.description-markdown h5,
+.description-markdown h6 {
+    font-size: 14px;
+}
+
+/* Index */
+.index-hero {
+		text-align: center;
+}
+
+.index-hero h1 {
+		margin-bottom: 20px;
+		font-size: 40px;
+}
+
+.index-hero form {
+		text-align: center;
+}
+
+.index-blurb {
+		text-align: left;
+		color: #707070;
+		font-size: 15px;
+}
+
+.index-blurb p {
+		margin-bottom: 24px;
+}
+
+.index-blurb b {
+		color: #000;
+		font-size: 15px;
+		white-space: nowrap;
+}
+
+.index-users-blurb {
+    margin-top: 30px;
+    font-size: 22px;
+}
+
+/* Email splash */
+form.email_splash {
+		width: 100%;
+}
+
+.row > div {
+		vertical-align: middle;
+}
+
+/* Profile */
+.profile-field {
+    font-weight: bold;
+}
+
+#profileForm {
+    margin-bottom: 0;
+}
+
+.disbursement-field {
+    padding-top: 10px;
+}
+
+/* Project */
+
+.project-information-field {
+    padding: 0px 10px 0px 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px 6px 0 0;
+}
+
+.project-information-title {
+    font-weight: bold;
+    font-size: 18px;
+    padding: 5px 5px 5px 0px;
+    border: 0px solid #ddd;
+    border-bottom-width: 1px;
+    border-radius: 0px 0px 0 0;
+    margin-bottom: 5px;
+}
+
+.edit-field {
+    color: #999
+}
+
+.project-thumbnail {
+  display: inline;
+}
+
+/* Tasks */
+.task-item {
+    margin-bottom: 20px;
+}
+
+.task-item:hover {
+    background-color: #eee;
+}
+
+.task-item.task-state-taken:hover {
+    background-color: #fff;
+		margin-bottom: 20px;
+}
+
+.task-item .task-work-button {
+    margin: 10px;
+    display: none;
+}
+
+.task-item:hover .task-work-button {
+    display: block;
+}
+
+.task-item.task-state-complete:hover .task-work-button,
+.task-item.task-state-taken:hover .task-work-button {
+    display: none;
+}
+
+.task-header .task-price,
+.task-item .task-price {
+    color: white;
+    background-color: #58b957;
+		display: inline-block;
+		font-size: 24px;
+		font-weight: bold;
+    padding: 10px;
+    margin-right: 20px;
+		text-align: center;
+}
+
+
+.starter-task .task-header .task-price {
+		background-color: #58b957;
+		color: white;
+}
+
+.starter-task .task-header .task-time {
+    background-color: #eee;
+		margin-right: 0px;
+}
+
+.starter-task .task-header .task-price,
+.starter-task .task-header .task-time {
+    white-space: nowrap;
+		display: inline-block;
+		font-size: 20px;
+		font-weight: bold;
+		padding: 6px 12px;
+		text-align: center;
+    margin: 0;
+}
+
+.starter-task .task-price {
+    border-radius: 4px 0 0 4px;
+}
+
+.starter-task .task-time {
+    color: #555;
+    border-radius: 0 4px 4px 0;
+    margin-right: 10px;
+}
+
+.starter-task-claim {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.starter-instructions .task-steps-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.task-second-row {
+    position: relative;
+    top: -4px;
+}
+
+.task-second-row .label a {
+    color: white;
+}
+
+.task-state-complete *,
+.task-state-taken * {
+    color: #ccc;
+}
+
+.task-state-complete .task-price,
+.task-state-taken .task-price {
+    background-color: #ccc;
+}
+
+.task-state-complete .label-default,
+.task-state-taken .label-default {
+    background-color: #ccc;
+    color: white;
+}
+
+.task-state-complete .task-title {
+    text-decoration: line-through;
+}
+
+.task-item .task-info {
+		vertical-align: top;
+}
+
+.task-item .task-title {
+		font-size: 24px;
+		font-weight: bold;
+		margin: 0;
+		width: 80%;
+}
+
+/* Task page */
+.work-complete-form {
+    margin-top: 10px;
+}
+
+.reset-wrapper {
+		margin: 0 10px;
+}
+
+.task-steps-title {
+    margin-bottom: 10px;
+}
+
+.task-description {
+    padding: 0 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f0f0f0;
+    margin: 20px 0;
+}
+
+.task-claim {
+    text-align: center;
+}
+
+.sign-up-to-work {
+    text-align: center;
+    font-size: 18px;
+}
+
+.already-claimed {
+    background-color: #f0f0f0;
+    color: #666;
+    display: inline-block;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    width: 400px;
+}
+
+.chat-button {
+  margin-left, margin-right: 5px;
+}
+
+/* Task, second style */
+.task2 {
+    /* border: 1px solid #ccc; */
+    /* border-radius: 6px; */
+    background-color: #fcfcfc;
+    margin: 16px 0;
+    /* padding: 16px; */
+}
+
+.task2-header {
+    border: 1px solid red;
+}
+
+.task2-header .task2-price {
+		background-color: #58b957;
+		color: white;
+		display: inline-block;
+		font-size: 24px;
+		font-weight: bold;
+		padding: 10px;
+		margin-right: 20px;
+		text-align: center;
+		width: 60px;
+}
+
+.project {
+    margin-bottom: 20px;
+}
+
+.optional {
+    color: #777;
+}
+
+.project-content {
+    padding: 10px 20px 20px 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px 6px 0 0;
+}
+
+.project-more {
+    background-color: #ddd;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    border-radius: 0 0 6px 6px;
+}
+
+.project-tasks .task-item:last-child {
+    margin: 0;
+}
+
+.project-more a {
+    color: #888;
+    font-weight: bold;
+}
+
+.project-title {
+    font-weight: bold;
+    font-size: 26px;
+}
+
+/* Dashboard */
+.withdraw-button {
+    margin-top: 10px;
+}
+
+.no-profile-dashboard {
+    margin-left: 10px;
+}
+
+/* New task page */
+.task-price, .task-time {
+    width: 100px; 
+}
+
+.stripe-form-group .control-label {
+    margin-top: 10px;
+}
+
+/* People */
+.users-tech-filters {
+    text-align: center;
+}
+
+.tech-leads {
+    margin-top: 20px;
+}
+
+.user-row {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.user-username-sm-padding {
+    height: 10px;
+    overflow: hidden;
+}
+
+.user-username a {
+    font-weight: bold;
+}
+
+.user-pic {
+    border-radius: 4px;
+}
+
+/* Vision Page */
+
+.sales-paragraph {
+    font-size: 18px
+}
+
+.sales-diffcomment {
+    border: 1px solid #ccc;
+    margin: 10px 0 10px 10px;
+    float: right;
+}
+
+/* Edit Repo */
+
+.edit-divider {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+
+/* Chat */
+
+.chat-box {
+    height: 500px;
+    overflow-y: scroll;
+}
