@@ -31,6 +31,8 @@ var SignupForm = React.createClass({
             data: payload,
             success: function(data) {
 		if (data["status"] == "invalid") {
+		    console.log("Setting status");
+		    console.log( data["errors"] );
 		    this.setState( data["errors"] );
 		} else {
 
