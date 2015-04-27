@@ -1,20 +1,20 @@
 package main
 
 import (
-	"net/http"
 	"database/sql"
 	"encoding/json"
+	"errors"
 	"flag"
 	"fmt"
-	"errors"
+	"net/http"
 	"regexp"
 	"strings"
 
-	"github.com/gorilla/mux"
-	"golang.org/x/crypto/bcrypt"
 	"github.com/go-gorp/gorp"
 	log "github.com/golang/glog"
+	"github.com/gorilla/mux"
 	_ "github.com/mattn/go-sqlite3"
+	"golang.org/x/crypto/bcrypt"
 
 	"github.com/ygrei/taskr/validators"
 )
@@ -26,8 +26,8 @@ const (
 )
 
 var (
-	port = flag.String("port", "8080", "Port to listen on")
-	dbPath           = flag.String("db_path", "/tmp/taskr.db", "Database path.")
+	port   = flag.String("port", "8080", "Port to listen on")
+	dbPath = flag.String("db_path", "/tmp/taskr.db", "Database path.")
 )
 
 var (
@@ -50,7 +50,7 @@ func SignupPostHandler(w http.ResponseWriter, r *http.Request) {
 		log.Errorf("%v", err)
 		log.Flush()
 	}
-	
+
 }
 
 func SignupPostHandlerWrapper(w http.ResponseWriter, r *http.Request) error {
