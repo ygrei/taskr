@@ -95,7 +95,7 @@ func SignupPostHandlerWrapper(w http.ResponseWriter, r *http.Request) error {
 	log.Infof("Successfully inserted into DB: %v", user)
 
 	w.Header().Set("Content-Type", "application/json")
-	resp := JSONResponse{"status": "success", "errors": errors}
+	resp := JSONResponse{"status": "success", "errors": errors }
 	fmt.Fprint(w, resp)
 	return nil
 }
