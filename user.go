@@ -2,8 +2,8 @@ package main
 
 import (
 	"database/sql"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 import (
@@ -16,7 +16,8 @@ const (
 )
 
 var (
-	errNoSuchUser = errors.New("no such user")
+	errNoSuchUser      = errors.New("no such user")
+	errInvalidPassword = errors.New("invalid password")
 )
 
 type User struct {
@@ -92,4 +93,17 @@ func (u *User) Expand() {
 	}
 	u.Techs = techsSlice
 	return
+}
+
+func Login(handle, password string) (*User, error) {
+	user, err := getUserByHandle(handle)
+	if err != nil {
+		return nil, err
+	}
+
+	if err := bcrypt.CompareHashAndPassword([]byte(user.PasswordHash), []byte(password+salt)); err != nil {
+		return nil, errInvalidPassword
+	}
+
+	return user, nil
 }

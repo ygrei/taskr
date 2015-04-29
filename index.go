@@ -39,7 +39,6 @@ func SignupPostHandler(w http.ResponseWriter, r *http.Request) {
 		log.Errorf("%v", err)
 		log.Flush()
 	}
-
 }
 
 func SignupPostHandlerWrapper(w http.ResponseWriter, r *http.Request) error {
@@ -101,11 +100,54 @@ func SignupPostHandlerWrapper(w http.ResponseWriter, r *http.Request) error {
 	return nil
 }
 
+func LoginPostHandler(w http.ResponseWriter, r *http.Request) {
+	if err := LoginPostHandlerWrapper(w, r); err != nil {
+		log.Errorf("%v", err)
+		log.Flush()
+	}
+}
+
+func LoginPostHandlerWrapper(w http.ResponseWriter, r *http.Request) error {
+	defer log.Flush()
+
+	handle := r.FormValue("handle")
+	password := r.FormValue("password")
+
+	errors := make(map[string]string)
+	validators.RequireString("handle", handle, &errors, "Handle is required")
+	validators.RequireString("password", password, &errors, "Password is required")
+
+	if len(errors) == 0 {
+		if _, err := Login(handle, password); err != nil {
+			if err == errNoSuchUser {
+				errors["handle"] = "Unrecognized email/username"
+			} else if err == errInvalidPassword {
+				errors["password"] = "Wrong password"
+			} else {
+				log.Errorf("Unexpected error while logging in %s: %v", handle, err)
+				return err
+			}
+		}
+	}
+
+	status := "success"
+	if len(errors) > 0 {
+		status = "invalid"
+	}
+
+	resp := JSONResponse{"status": status, "errors": errors}
+	w.Header().Set("Content-Type", "application/json")
+	log.Infof("Response is %v ", resp)
+	fmt.Fprint(w, resp)
+	return nil
+}
+
 func main() {
 	flag.Parse()
 	initDB(*dbPath)
 
 	http.HandleFunc("/json/signup", SignupPostHandler)
+	http.HandleFunc("/json/login", LoginPostHandler)
 	http.Handle("/", http.FileServer(http.Dir("./public")))
 	p := ":" + *port
 

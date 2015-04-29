@@ -65,7 +65,55 @@ var SignupForm = React.createClass({
     }
 });
 
+var LoginForm = React.createClass({
+    handleSubmit: function(e) {
+	e.preventDefault();
+	payload = {
+	    'handle': this.refs.handle.value(),
+	    'password': this.refs.password.value()
+	};
+	console.log(payload);
+	$.ajax({
+            url: "/json/login",
+            dataType: 'json',
+            type: 'POST',
+            data: payload,
+            success: function(data) {
+		if (data["status"] == "invalid") {
+		    console.log("Setting status");
+		    console.log( data["errors"] );
+		    this.setState( data["errors"] );
+		} else {
+
+		}
+            }.bind(this),
+            error: function(xhr, status, err) {
+		console.error(this.props.url, status, err.toString());
+            }.bind(this)
+	});
+
+    },
+    getInitialState: function() {
+	return {
+	    handle: '',
+	    password: ''
+	};
+    },
+    render: function() {
+	return (
+	    <div class="LoginForm">
+		<form role="form" class="signup" onSubmit={this.handleSubmit} >
+		<TextInputWithFeedback field="handle" errors={ this.state.handle } ref="handle"/>
+		<TextInputWithFeedback field="password" errors={ this.state.password } ref="password" />
+
+		<button type="submit" class="btn btn-primary">Login</button>
+		</form>
+	    </div>
+	);
+    }
+});
+
 React.render(
-  <SignupForm />,
+  <div class="x"><SignupForm /><LoginForm /></div>,
   document.getElementById('content')
 );
